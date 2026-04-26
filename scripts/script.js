@@ -21,7 +21,7 @@ function toggleMenu() {
 }
 
 burgerMenu.addEventListener('click', function (e) {
-    e.stopPropagation(); 
+    e.stopPropagation();
     toggleMenu();
 });
 
@@ -58,12 +58,12 @@ window.addEventListener('resize', function () {
 
 
 const swiper = new Swiper('.swiper', {
-    slidesPerView: "auto",      
-    spaceBetween: 0,      
+    slidesPerView: "auto",
+    spaceBetween: 0,
 });
 
 Fancybox.bind('[data-fancybox="gallery"]', {
-    infinite: true,  
+    infinite: true,
     Toolbar: {
         display: {
             left: ["infobar"],
@@ -78,7 +78,7 @@ const form = document.getElementById('form');
 const sumRadioinputs = document.querySelectorAll('.sum_radio_input');
 const sumCustomInput = document.querySelector('.sum_custom_input');
 
-sumCustomInput.addEventListener('input', function() {
+sumCustomInput.addEventListener('input', function () {
     if (this.value.trim() !== '') {
         sumRadioinputs.forEach(radio => {
             radio.checked = false;
@@ -86,7 +86,7 @@ sumCustomInput.addEventListener('input', function() {
 
         });
     } else {
-         sumRadioinputs.forEach(radio => {
+        sumRadioinputs.forEach(radio => {
             radio.required = true;
 
         });
@@ -94,21 +94,21 @@ sumCustomInput.addEventListener('input', function() {
 });
 
 sumRadioinputs.forEach(radio => {
-    radio.addEventListener('change', function() {
+    radio.addEventListener('change', function () {
         if (this.checked) {
             sumCustomInput.value = '';
         }
-        
+
     });
 });
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const checkedRadio = document.querySelector('.sum_radio_input:checked');
-    
-    const sum = checkedRadio 
-        ? checkedRadio.value 
+
+    const sum = checkedRadio
+        ? checkedRadio.value
         : sumCustomInput.value;
 
     const name = form.querySelector('input[name="name"]').value;
@@ -116,7 +116,7 @@ form.addEventListener('submit', (e) => {
     const msg = form.querySelector('textarea').value;
     const mounthly = form.querySelector('input[name="pay_mouthly"]').checked;
     const anon = form.querySelector('input[name="pay_anon"]').checked; // была пропущена закрывающая скобка
-    
+
     console.log({
         sum: sum || 'Не указана',
         name: name || 'Не указан',
@@ -125,11 +125,13 @@ form.addEventListener('submit', (e) => {
         mounthly: mounthly,
         anon: anon,
     });
-    
-     formAlertShow()
+
+    formAlertShow();
+    form.reset();
+
     sumCustomInput.value = '';
     sumRadioinputs.forEach(radio => {
-        radio.required = false;
+        radio.required = true;
         radio.checked = false;
     });
 });
@@ -146,7 +148,7 @@ function formAlertShow() {
 const faqItems = document.querySelectorAll('.faq_item');
 
 faqItems.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
         // Закрываем все остальные блоки
         faqItems.forEach(otherItem => {
             if (otherItem !== this && otherItem.classList.contains('is-open')) {
