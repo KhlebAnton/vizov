@@ -62,13 +62,16 @@ html {
     font-weight: 700;
     font-size: 16px;
     line-height: 16px;
-    height: 48px;
-    padding: 10px 21px;
+    height: 60px;
+    padding: 10px 34px;
     border-radius: 32px;
     text-align: center;
     border: none;
 }
-
+.btn_header {
+    height: 48px;
+    padding: 10px 21px;
+}
 .btn_width_s {
     width: fit-content;
     margin: 0 auto;
