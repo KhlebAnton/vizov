@@ -1708,6 +1708,7 @@ input[type="checkbox"]:checked+.checbox_marker::after {
     }
     .banner_info__bottom {
         gap: 10px;
+        text-align: center;
     }
     .banner_title {
         font-size: 36px;
